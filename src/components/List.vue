@@ -412,8 +412,8 @@
                 let that = this;
                 let directlink = this.common.removeDuplicateSeparator(this.$store.getters.domain + "/directlink/" + this.driveId + "/" + encodeURI(this.hoverRow.path) + "/" + encodeURI(this.hoverRow.name));
 
-                this.$http.get('https://v1.alapi.cn/api/url', {params: {url: directlink}, withCredentials: false}).then((response) => {
-                    this.$copyText(response.data.data.short_url).then(function () {
+                this.$http.get('http://6du.in/plugins/api/api_mobileweb_json.php/api_mobileweb_json.php', {params: {action: "Create",url: directlink}, withCredentials: false}).then((response) => {
+                    this.$copyText(response.data.url).then(function () {
                         that.$message.success('复制成功');
                     }, function () {
                         that.$message.error('复制失败');
